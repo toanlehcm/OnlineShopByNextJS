@@ -1,0 +1,9 @@
+# Dependencies
+/node_modules
+/package-lock.json
+/dist
+/.env
+
+# next.js
+/.next
+/.cache
