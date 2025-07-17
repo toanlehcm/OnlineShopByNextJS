@@ -1,32 +1,9 @@
 import type { Metadata } from "next";
-// import { Roboto } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
 
-/*--- Font default from NextJS. ---*/
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
-/*--- Install Roboto font from next/font/google ---*/
-// const roboto = Roboto({
-//   variable: "--font-roboto",
-//   subsets: ["vietnamese"],
-//   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-//   style: ["normal", "italic"],
-// });
-
 /*--- Install Roboto font from next/font/local ---*/
 const myFont = localFont({
-  // Import single font file.
-  // src: './Roboto-Thin.ttf',
-
   // Import multiple font files.
   src: [
     { path: "./Roboto-Thin.ttf", weight: "100" },
@@ -50,33 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {/*--- Install fonts from CDN ---*/}
-        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-          rel="stylesheet"
-        /> */}
-      </head>
-
-      {/*--- Font default from NextJS ---*/}
-      {/* <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
-      </body> */}
-
-      {/*--- Install font from next/font/google ---*/}
-      {/* <body className={`${roboto.className}`}>
-        {children}
-      </body> */}
-
-      {/*--- Install font from next/font/local ---*/}
-      {/* <body className={`${myFont.className}`}>{children}</body> */}
-
-      {/*--- Install font from next/font/local with Tailwind CSS ---*/}
-      <body className={`${myFont.variable}`}>
-        {children}
-      </body>
+      <body className={`${myFont.variable}`}>{children}</body>
     </html>
   );
 }
