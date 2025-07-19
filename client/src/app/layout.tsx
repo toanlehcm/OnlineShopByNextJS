@@ -1,18 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import localFont from "next/font/local";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
 
-/*--- Install Roboto font from next/font/local ---*/
-const myFont = localFont({
-  // Import multiple font files.
-  src: [
-    { path: "./Roboto-Thin.ttf", weight: "100" },
-    {
-      path: "./Roboto-Regular.ttf",
-      weight: "400",
-    },
-  ],
-  variable: "--font-roboto", // Define a CSS variable for the font using with tailwindcss.
+const inter = Inter({
+  subsets: ["vietnamese", "latin"],
 });
 
 export const metadata: Metadata = {
@@ -26,8 +18,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${myFont.variable}`}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className}`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
